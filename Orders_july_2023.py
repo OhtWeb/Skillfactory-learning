@@ -42,3 +42,11 @@ best_cust_id = max(summary_price, key=summary_price.get)
 print(f'5. Покупатель №{best_cust_id} принес больше всего денег: {summary_price[best_cust_id]:.2f}')
 print(f'6. Cредняя стоимость заказа в июле cоставила {medium_order_price:.2f}')
 print(f'7. Средняя стоимость товаров в июле составила {medium_unit_price:.2f}')
+#Ответы на вопросы 4 и 5 вызывали у меня сомнения, но, видимо, верны, т.к. все user_id в приложенном json уникальны
+for order_num, orders_data in orders.items():
+    user_id = orders_data['user_id']
+    if user_id in seen:
+        duplicates.add(user_id)
+    else:
+        seen.add(user_id)
+print(list(duplicates))
