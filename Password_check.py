@@ -1,12 +1,13 @@
-def check_password(password):
-    if len(password) < 8:
-        print('Пароль должен быть не менее 8 символов')
-    if not any(char.isupper() for char in password):
-        print('Пароль должен содержать хотя бы одну заглавную букву')
-    if not any(char.islower() for char in password):
-        print('Пароль должен содержать хотя бы одну строчную букву')
-    if not any(char.isdigit() for char in password):
-        print('Пароль должен содержать хотя бы одну цифру')
+def is_valid_password(password, min_length = 8, require_upper = True, require_lower = True, require_digit = True):
+    if len(password) < min_length:
+        return False
+    if require_upper and not any(char.isupper() for char in password):
+        return False
+    if require_lower and not any(char.islower() for char in password):
+        return False
+    if require_digit and not any(char.isdigit() for char in password):
+        return False
     else:
-        print()
-check_password("--")
+        return True
+
+is_valid_password('--')

@@ -32,7 +32,10 @@ coworkers.remove('Duck')
 coworkers.remove('Goose')
 coworkers.remove('Cow')
 print('Rats were very arrogant, they scared Duck, Goose and Cow, so they moved out.')
-coworkers.append('Cat')
+if coworkers.count('Rat') >= 12:
+    coworkers.append('Cat')
+else:
+    print('Nobody cares about rats, until they overwhelmed small farm')
 print('Dog repented and called Cat back.')
 coworkers = [x for x in coworkers if x != 'Rat']
 print('Cat ate all rats.')

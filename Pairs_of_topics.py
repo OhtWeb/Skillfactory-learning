@@ -9,6 +9,5 @@ def generate_topics(race_list, class_list, fraction_list, location_list):
                 for location in location_list:
                     yield race, class_, fraction, location
 topic_generator = generate_topics(races, classes_, fractions, locations)
-for topic in topic_generator:
-    numbered_topic = [(i, val) for i, val in enumerate(topic, 1)]
-    print(numbered_topic)
+for i, topic in enumerate(topic_generator, 1):
+    print(f'#{i}: {topic}')
